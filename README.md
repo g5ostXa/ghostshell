@@ -7,8 +7,8 @@ A very simple, yet elegant greeter for your terminal. Built with Go and lipgloss
 #### Using curl
 Dowload the latest release and the `sha256sum`:
 ```bash
-curl -L -O "https://github.com/g5ostXa/ghostshell/releases/download/v0.1.0/ghostshell-v0.1.0-linux-amd64"
-curl -L -O "https://github.com/g5ostXa/ghostshell/releases/download/v0.1.0/sha256sum.txt"
+curl -L -O "https://github.com/g5ostXa/ghostshell/releases/download/v0.1.1/ghostshell-v0.1.1-linux-amd64"
+curl -L -O "https://github.com/g5ostXa/ghostshell/releases/download/v0.1.1/sha256sum.txt"
 ```
 Verify your download with `sha256sum`:
 ```bash
@@ -16,15 +16,15 @@ sha256sum -c sha256sum.txt
 ```
 You should get something like this:
 ```
-ghostshell-v0.1.0-linux-amd64: OK
+ghostshell-v0.1.1-linux-amd64: OK
 ```
 Make sure the binary is executable:
 ```bash
-chmod +x ghostshell-v0.1.0-linux-amd64
+chmod +x ghostshell-v0.1.1-linux-amd64
 ```
 Move the binary in your `$GOBIN` as `ghostshell`:
 ```bash
-mv ./ghostshell-v0.1.0-linux-amd64 "$GOBIN/ghostshell"
+mv ./ghostshell-v0.1.1-linux-amd64 "$GOBIN/ghostshell"
 ```
 #### Using git
 Clone the the latest git:
