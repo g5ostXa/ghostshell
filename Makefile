@@ -7,7 +7,7 @@ VERSION?=dev
 BUILD_DIR=./bin
 
 help:
-	@echo "ghostshell - Build targets:"
+	@echo "	 ghostshell    - Build targets:"
 	@echo "  make build    - Build the binary"
 	@echo "  make install  - Install to $$GOBIN or $$HOME/go/bin"
 	@echo "  make run      - Build and run locally"
