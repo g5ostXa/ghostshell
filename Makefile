@@ -1,10 +1,10 @@
 .PHONY: build install clean run help
 
-BINARY_NAME=ghostshell
-GO=go
-GOFLAGS=-v
-VERSION?=dev
-BUILD_DIR=./bin
+BINARY_NAME= ghostshell
+GO= go
+GOFLAGS= -v
+VERSION?= latest
+BUILD_DIR= ./bin
 
 help:
 	@echo "	 ghostshell    - Build targets:"

@@ -16,7 +16,7 @@ import (
 var (
 	mainTitle = "ghostshell"
 	treeTitle = "○ Version"
-	version   = "dev"
+	version   = "latest"
 )
 
 // Main colors
