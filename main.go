@@ -14,9 +14,9 @@ import (
 
 // App info
 var (
-	mainTitle     = "ghostshell"
-	treeTitle     = "○ Version"
-	latestVersion = "v0.1.1"
+	mainTitle = "ghostshell"
+	treeTitle = "○ Version"
+	version   = "dev"
 )
 
 // Main colors
@@ -66,7 +66,7 @@ func loadVersion(versionFile string) {
 		log.Printf("Warning: Could not read version file %s: %v\n", versionFile, err)
 		return
 	}
-	latestVersion = strings.TrimSpace(string(content))
+	version = strings.TrimSpace(string(content))
 }
 
 func makeTree(version string) {
@@ -83,7 +83,7 @@ func main() {
 
 	// Define flags
 	titleFlag := flag.String("title", mainTitle, "Main title to display")
-	versionFlag := flag.String("version", latestVersion, "Version to display")
+	versionFlag := flag.String("version", version, "Version to display")
 	versionFileFlag := flag.String("version-file", "", "Path to file containing version (overrides --version)")
 	treeTitleFlag := flag.String("tree-title", treeTitle, "Tree root title")
 
@@ -107,10 +107,10 @@ func main() {
 	if *versionFileFlag != "" {
 		loadVersion(*versionFileFlag)
 	} else {
-		latestVersion = *versionFlag
+		version = *versionFlag
 	}
 
 	// Render output
 	lipgloss.Println(headerStyle.Render("", mainTitle, ""))
-	makeTree(latestVersion)
+	makeTree(version)
 }
