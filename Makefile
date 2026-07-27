@@ -22,7 +22,6 @@ install: build
 	@echo "Installing $(BINARY_NAME)..."
 	cp $(BUILD_DIR)/$(BINARY_NAME) $$($(GO) env GOBIN)
 
-
 run: build
 	@echo ":: Running $(BINARY_NAME)..."
 	@$(BUILD_DIR)/$(BINARY_NAME)
