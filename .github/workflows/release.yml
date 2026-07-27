@@ -17,10 +17,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Set up Go
-        uses: actions/setup-go@v4
+        uses: actions/setup-go@v6
         with:
           go-version: stable
 
@@ -28,7 +28,7 @@ jobs:
         run: |
           mkdir -p dist
           VERSION=${GITHUB_REF#refs/tags/}
-          GOOS=linux GOARCH=amd64 go build -o dist/ghostshell-${VERSION}-linux-amd64 .
+          GOOS=linux GOARCH=amd64 go build -ldflags "-X main.version=${VERSION}" "-o" dist/ghostshell-${VERSION}-linux-amd64 .
 
       - name: Generate sha256sum
         run: |
