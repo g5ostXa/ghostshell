@@ -3,13 +3,13 @@ package main
 import (
 	"flag"
 	"fmt"
-	"log"
 	"os"
 	"path/filepath"
 	"strings"
 
 	"charm.land/lipgloss/v2"
 	"charm.land/lipgloss/v2/tree"
+	"github.com/charmbracelet/log"
 )
 
 // App info
@@ -42,12 +42,17 @@ var treeSubRootStyle = lipgloss.NewStyle().
 	Bold(true).
 	Foreground((green))
 
+var logger = log.NewWithOptions(os.Stderr, log.Options{
+	ReportTimestamp: false,
+	Prefix:          ":",
+})
+
 func expandPath(path string) string {
 
 	if strings.HasPrefix(path, "~") {
 		home, err := os.UserHomeDir()
 		if err != nil {
-			log.Fatalf("Error getting home directory: %v\n", err)
+			logger.Fatalf("Error getting home directory: %v\n", err)
 		}
 		return filepath.Join(home, path[1:])
 	}
@@ -63,7 +68,7 @@ func loadVersion(versionFile string) {
 	versionFile = expandPath(versionFile)
 	content, err := os.ReadFile(versionFile)
 	if err != nil {
-		log.Printf("Warning: Could not read version file %s: %v\n", versionFile, err)
+		logger.Printf("Warning: Could not read version file %s: %v\n", versionFile, err)
 		return
 	}
 	version = strings.TrimSpace(string(content))
